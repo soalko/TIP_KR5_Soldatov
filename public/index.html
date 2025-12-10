@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой список фильмов "Хочу посмотреть"</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1><i class="fas fa-film"></i> Мой киносписок</h1>
+    </header>
+
+    <div class="content">
+        <div class="form-section">
+            <h2><i class="fas fa-plus-circle"></i> Добавить новый фильм</h2>
+            <form id="movieForm">
+                <div class="form-group">
+                    <label for="title">Название фильма *</label>
+                    <input type="text" id="title" required placeholder="Например: Интерстеллар">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Описание</label>
+                    <textarea id="description" placeholder="Краткое описание сюжета..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="genre">Жанр</label>
+                    <input type="text" id="genre" placeholder="Фантастика, Драма, Комедия...">
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Год выпуска</label>
+                    <input type="number" id="year" min="1900" max="2030" placeholder="2024">
+                </div>
+
+                <div class="form-group">
+                    <label for="director">Режиссер</label>
+                    <input type="text" id="director" placeholder="Кристофер Нолан">
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Рейтинг (0-10)</label>
+                    <input type="number" id="rating" min="0" max="10" step="0.1" placeholder="8.5">
+                </div>
+
+                <div class="form-group">
+                    <label for="posterUrl">Ссылка на постер</label>
+                    <input type="url" id="posterUrl" placeholder="https://example.com/poster.jpg">
+                </div>
+
+                <button type="submit" class="btn">
+                    <i class="fas fa-save"></i> Добавить в список
+                </button>
+            </form>
+        </div>
+
+        <div class="movies-section">
+            <h2><i class="fas fa-list"></i> Мой список фильмов</h2>
+
+            <div id="moviesContainer" class="movies-grid">
+            </div>
+        </div>
+    </div>
+
+    <div class="api-info">
+        <h3><i class="fas fa-code"></i> API Эндпоинты</h3>
+        <div class="endpoint">
+            <span class="method">GET</span>
+            <code>/api/movies</code> - Получить все фильмы (пагинация: ?page=1&limit=10)
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span>
+            <code>/api/movies</code> - Добавить новый фильм
+        </div>
+        <div class="endpoint">
+            <span class="method">GET</span>
+            <code>/api/movies/genre/:genre</code> - Фильтры по жанру
+        </div>
+        <div class="endpoint">
+            <span class="method">PUT</span>
+            <code>/api/movies/:id</code> - Обновить фильм
+        </div>
+        <div class="endpoint">
+            <span class="method">DELETE</span>
+            <code>/api/movies/:id</code> - Удалить фильм
+        </div>
+    </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
